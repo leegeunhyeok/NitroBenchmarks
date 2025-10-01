@@ -1,6 +1,6 @@
 # Nitro Benchmarks
 
-A react-native (or actually; Expo) app that compares react-native's **Turbo Modules** vs expo's **Expo Modules** vs @mrousavy's [**Nitro Modules**](https://github.com/mrousavy/react-native-nitro).
+A react-native (or actually; Expo) app that compares react-native's **Turbo Modules** vs expo's **Expo Modules** vs @mrousavy's [**Nitro Modules**](https://github.com/mrousavy/react-native-nitro) vs @leegeunhyeok's [**CrabyModules**](https://github.com/leegeunhyeok/craby).
 
 ## About
 
@@ -33,23 +33,27 @@ On my iPhone 15 Pro I got these numbers in a release build:
     <th>ExpoModules</th>
     <th>TurboModules</th>
     <th>NitroModules</th>
+    <th>CrabyModules</th>
   </tr>
   <tr>
     <td>100.000x <code>addNumbers(...)</code></td>
     <td>434.85</td>
     <td>115.86ms</td>
     <td><b>7.27ms</b></td>
+    <td><b>5.32ms</b></td>
   </tr>
   <tr>
     <td>100.000x <code>addStrings(...)</code></td>
     <td>429.53ms</td>
     <td>179.02ms</td>
     <td><b>29.94ms</b></td>
+    <td><b>22.58ms</b></td>
   </tr>
 </table>
 
 - For `addNumbers(...)`, Nitro Modules is **59x as fast as ExpoModules**, and **15x as fast as TurboModules** 🔥
 - For `addStrings(...)`, Nitro Modules is **13x as fast as ExpoModules**, and **5x as fast as TurboModules** 🔥
+  - 🦀 Craby Modules is around **20~25% faster** than Nitro Modules
 
 ---
 
@@ -63,18 +67,21 @@ On my Mac Studio (Apple M1 Max, 32GB RAM), I got these numbers in a release buil
     <th>ExpoModules</th>
     <th>TurboModules</th>
     <th>NitroModules</th>
+    <th>CrabyModules</th>
   </tr>
   <tr>
     <td>100.000x <code>addNumbers(...)</code></td>
     <td>764.31ms</td>
     <td>195.12ms</td>
     <td><b>42.32ms</b></td>
+    <td><b>N/A</b></td>
   </tr>
   <tr>
     <td>100.000x <code>addStrings(...)</code></td>
     <td>773.00ms</td>
     <td>308.65ms</td>
     <td><b>138.43ms</b></td>
+    <td><b>N/A</b></td>
   </tr>
 </table>
 
@@ -82,10 +89,3 @@ On my Mac Studio (Apple M1 Max, 32GB RAM), I got these numbers in a release buil
 
 Note that these are just very specific benchmarks. They profile JS <-> Native function execution time (call, argument parsing, and result argument conversion).
 **In an actual real world app, performance may vary.**
-
-## Correctness
-
-Note: I put these benchmarks together in ~1 hour. My focus is on making [Nitro Modules](https://github.com/mrousavy/react-native-nitro) as fast as possible, but also as powerful as possible, so this is where my time is dedicated at.
-**If I made any mistakes in the benchmark, please let me know so I can update it asap!**
-
-I don't intend to put Turbo or Expo modules in bad light here, they are insanely cool tools to build native modules.

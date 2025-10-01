@@ -1,0 +1,3 @@
+[project]
+name = "my_craby_module"
+source_dir = "src"

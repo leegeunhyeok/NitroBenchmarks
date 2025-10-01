@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { MyExpoModule } from './modules/my-module';
 import { MyNitroModule } from './modules/nitro-module';
 import { MyTurboModule } from './modules/turbo-module/js'
+import { MyCrabyModule } from './modules/craby-module/js';
 
 function testExpoModule() {
   MyExpoModule.addNumbers(5, 13)
@@ -17,6 +18,10 @@ function testTurboModule() {
   MyTurboModule.addNumbers(5, 13)
   MyTurboModule.addStrings('hello ', 'world')
 }
+function testCrabyModule() {
+  MyCrabyModule.addNumbers(5, 13)
+  MyCrabyModule.addStrings('hello ', 'world')
+}
 
 const runs = 100_000
 
@@ -24,6 +29,7 @@ function runNumberBenchmark() {
   testExpoModule()
   testNitroModule()
   testTurboModule()
+  testCrabyModule();
   console.log('--------- BEGINNING NUMBER BENCHMARKS ---------')
   let expoTime = 0
   {
@@ -61,8 +67,20 @@ function runNumberBenchmark() {
     nitroTime = (end - start).toFixed(2)
     console.log(`NitroModule took ${nitroTime}ms to run addNumbers(...) ${runs}x!`)
   }
+  let crabyTime = 0
+  {
+    console.log(`Starting CrabyModule benchmark...`)
+    const start = performance.now()
+    let num = 0
+    for (let i = 0; i < runs; i++) {
+      num = MyCrabyModule.addNumbers(num, 5)
+    }
+    const end = performance.now()
+    crabyTime = (end - start).toFixed(2)
+    console.log(`NitroModule took ${crabyTime}ms to run addNumbers(...) ${runs}x!`)
+  }
   console.log('--------- FINISHED NUMBER BENCHMARKS! ---------')
-  return { expoTime, turboTime, nitroTime }
+  return { expoTime, turboTime, nitroTime, crabyTime }
 }
 
 function runStringsBenchmark() {
@@ -100,8 +118,19 @@ function runStringsBenchmark() {
     nitroTime = (end - start).toFixed(2)
     console.log(`NitroModule took ${nitroTime}ms to run addStrings(...) ${runs}x!`)
   }
+  let crabyTime = 0
+  {
+    console.log(`Starting CrabyModule benchmark...`)
+    const start = performance.now()
+    for (let i = 0; i < runs; i++) {
+      const x = MyCrabyModule.addStrings('hello ', 'world')
+    }
+    const end = performance.now()
+    crabyTime = (end - start).toFixed(2)
+    console.log(`NitroModule took ${crabyTime}ms to run addStrings(...) ${runs}x!`)
+  }
   console.log('--------- FINISHED STRING BENCHMARKS! ---------')
-  return { expoTime, turboTime, nitroTime }
+  return { expoTime, turboTime, nitroTime, crabyTime }
 }
 
 
@@ -124,7 +153,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: 'bold', size: 24 }}>ExpoModules vs TurboModules vs NitroModules</Text>
+      <Text style={{ fontWeight: 'bold', size: 24 }}>ExpoModules vs TurboModules vs NitroModules vs CrabyModules</Text>
 
       <View style={{ height: 50 }} />
 
@@ -138,6 +167,9 @@ export default function App() {
         </Text>
         <Text>
           NitroModule.addNumbers(...) took <Text style={{ fontWeight: 'bold' }}>{numberTimes?.nitroTime}ms</Text>
+        </Text>
+        <Text>
+          CrabyModule.addNumbers(...) took <Text style={{ fontWeight: 'bold' }}>{numberTimes?.crabyTime}ms</Text>
         </Text>
       </View>
 
@@ -153,6 +185,9 @@ export default function App() {
         </Text>
         <Text>
           NitroModule.addStrings(...) took <Text style={{ fontWeight: 'bold' }}>{stringTimes?.nitroTime}ms</Text>
+        </Text>
+        <Text>
+          CrabyModule.addStrings(...) took <Text style={{ fontWeight: 'bold' }}>{stringTimes?.crabyTime}ms</Text>
         </Text>
       </View>
 
