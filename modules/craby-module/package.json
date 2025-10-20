@@ -56,12 +56,12 @@
   },
   "homepage": "https://github.com/leegeunhyeok/craby#readme",
   "dependencies": {
-    "craby-modules": "0.1.0-alpha.8"
+    "craby-modules": "0.1.0-beta.2"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
     "@types/react": "^19.0.0",
-    "crabygen": "0.1.0-alpha.8",
+    "crabygen": "0.1.0-beta.2",
     "del-cli": "^7.0.0",
     "react": "19.1.1",
     "react-native": "0.81.4",

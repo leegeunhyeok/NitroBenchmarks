@@ -48,21 +48,6 @@ target 'NitroBenchmarks' do
         end
       end
     end
-
-    installer.pods_project.build_configurations.each do |config|
-      config.build_settings['ARCHS'] = 'arm64'
-      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'x86_64'
-      config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-    end
-    
-    installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
-        config.build_settings['ARCHS'] = 'arm64'
-        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'x86_64'
-        config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.6'
-      end
-    end
   end
 
   post_integrate do |installer|

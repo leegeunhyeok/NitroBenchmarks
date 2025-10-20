@@ -3357,12 +3357,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"craby-modules@npm:0.1.0-alpha.8":
-  version: 0.1.0-alpha.8
-  resolution: "craby-modules@npm:0.1.0-alpha.8"
+"craby-modules@npm:0.1.0-beta.2":
+  version: 0.1.0-beta.2
+  resolution: "craby-modules@npm:0.1.0-beta.2"
   peerDependencies:
     react-native: ">=0.76.0"
-  checksum: 10c0/f207770967a7ec3ab7f414a515299f441faa106693853a4f3ebf872f74ad7f94df9a8c67aadbbf58259d79bf244a87959300a7bc9eb4ebe833ace011322fca26
+  checksum: 10c0/44c56d6d031d84913eb4723fd107369578f234c201379d9e85eacee553cd49c4526277bc4964052523bc0cabaf4cc2bc6bf899f3f8bbc2f526b9007bf7c4c9a9
   languageName: node
   linkType: hard
 
@@ -6515,23 +6515,23 @@ __metadata:
 
 "my-craby-module@file:modules/craby-module::locator=nitrobenchmarks%40workspace%3A.":
   version: 0.1.0
-  resolution: "my-craby-module@file:modules/craby-module#modules/craby-module::hash=ea92e2&locator=nitrobenchmarks%40workspace%3A."
+  resolution: "my-craby-module@file:modules/craby-module#modules/craby-module::hash=9bcb63&locator=nitrobenchmarks%40workspace%3A."
   dependencies:
-    craby-modules: "npm:0.1.0-alpha.8"
+    craby-modules: "npm:0.1.0-beta.2"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/25d8e4ee8fa5cd527b64ab2e4fe7c3deeacb280a7bd3a58cb5e52ae538db78ef622d39a9181544cf6f56d5606eff4e016a686817b1cab46ea54dd1f0f2ce2cb2
+  checksum: 10c0/49896c8f4130a29b6c3fa1bad12c88001b44a7d418b5d7ee565d13cf78abb46d545f7b2f356e39a26bfaf1cc6335635678d62050e19a88879df9dcd5ae453e0a
   languageName: node
   linkType: hard
 
 "my-cxx-module@file:modules/cxx-module::locator=nitrobenchmarks%40workspace%3A.":
   version: 0.1.0
-  resolution: "my-cxx-module@file:modules/cxx-module#modules/cxx-module::hash=b129ac&locator=nitrobenchmarks%40workspace%3A."
+  resolution: "my-cxx-module@file:modules/cxx-module#modules/cxx-module::hash=d0e480&locator=nitrobenchmarks%40workspace%3A."
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/25ce2f905247d1230da58421e298b2cddbc98c3a200af8499cdfb919ba3ea1ccf5b1af3246b7462fac6653d81b48b53f007469a6c145c33d4a6a439236844bc9
+  checksum: 10c0/637b6caced8c3a28b368e41afe77a2b3e0e18e808d6c74b592d83394809a7020f5478c30393b382b1533f84b1e994e836793c1638c29abbe4637fa52a3bbd6e7
   languageName: node
   linkType: hard
 
