@@ -182,7 +182,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: 'bold', size: 24 }}>ExpoModules vs TurboModules vs NitroModules vs CrabyModules</Text>
+      <Text style={{ fontWeight: 'bold', size: 24 }}>ExpoModules vs TurboModules vs NitroModules vs CrabyModules vs CxxModules</Text>
 
       <View style={{ height: 50 }} />
 

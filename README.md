@@ -47,13 +47,13 @@ On my iPhone 15 Pro I got these numbers in a release build:
     <td>429.53ms</td>
     <td>179.02ms</td>
     <td><b>29.94ms</b></td>
-    <td><b>22.58ms</b></td>
+    <td><b>15.75ms</b></td>
   </tr>
 </table>
 
 - For `addNumbers(...)`, Nitro Modules is **59x as fast as ExpoModules**, and **15x as fast as TurboModules** 🔥
 - For `addStrings(...)`, Nitro Modules is **13x as fast as ExpoModules**, and **5x as fast as TurboModules** 🔥
-  - 🦀 Craby Modules is around **20~25% faster** than Nitro Modules
+- 🦀 Craby Modules is **faster** than Nitro Modules
 
 ---
 
