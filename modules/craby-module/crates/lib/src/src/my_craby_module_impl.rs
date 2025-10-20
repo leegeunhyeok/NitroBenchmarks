@@ -7,7 +7,7 @@ pub struct MyCrabyModule {
 }
 
 impl MyCrabyModuleSpec for MyCrabyModule {
-    fn new(id: usize) -> MyCrabyModule {
+    fn new(id: usize) -> Self {
         MyCrabyModule { id }
     }
 
@@ -15,11 +15,14 @@ impl MyCrabyModuleSpec for MyCrabyModule {
         self.id
     }
 
-    fn add_numbers(&self, a: Number, b: Number) -> Number {
+    fn add_numbers(&mut self, a: Number, b: Number) -> Number {
         a + b
     }
 
-    fn add_strings(&self, a: String, b: String) -> String {
-        [a, b].concat()
+    fn add_strings(&mut self, a: &str, b: &str) -> String {
+        let mut s = String::with_capacity(a.len() + b.len());
+        s.push_str(a);
+        s.push_str(b);
+        s
     }
 }
