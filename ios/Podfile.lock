@@ -63,6 +63,27 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - MyCxxModule (0.1.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - MyModule (1.0.0):
     - ExpoModulesCore
   - MyNitroModule (0.0.1):
@@ -1304,6 +1325,7 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - MyCrabyModule (from `../node_modules/my-craby-module`)
+  - MyCxxModule (from `../node_modules/my-cxx-module`)
   - MyModule (from `../modules/my-module/ios`)
   - MyNitroModule (from `../modules/nitro-module`)
   - MyTurboModule (from `../node_modules/my-turbo-module`)
@@ -1393,6 +1415,8 @@ EXTERNAL SOURCES:
     :tag: hermes-2024-06-28-RNv0.74.3-7bda0c267e76d11b68a585f84cfdd65000babf85
   MyCrabyModule:
     :path: "../node_modules/my-craby-module"
+  MyCxxModule:
+    :path: "../node_modules/my-cxx-module"
   MyModule:
     :path: "../modules/my-module/ios"
   MyNitroModule:
@@ -1513,6 +1537,7 @@ SPEC CHECKSUMS:
   glog: fdfdfe5479092de0c4bdbebedd9056951f092c4f
   hermes-engine: 8c1577f3fdb849cbe7729c2e7b5abc4b845e88f8
   MyCrabyModule: d740c07be8bde55cf9281d2207feb9045f8f5b0f
+  MyCxxModule: 810f81d0cedfec7007f640b34e10f0f1b848a3b2
   MyModule: 85e6c56cc185059c3faa32d8987bcee7cbc89ead
   MyNitroModule: a30c5fd61d611a62a38ac7c36421c738e99d6755
   MyTurboModule: 8e204df3c6c0cfb642d1e2dca09c5152a897c7fa

@@ -6525,6 +6525,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"my-cxx-module@file:modules/cxx-module::locator=nitrobenchmarks%40workspace%3A.":
+  version: 0.1.0
+  resolution: "my-cxx-module@file:modules/cxx-module#modules/cxx-module::hash=b129ac&locator=nitrobenchmarks%40workspace%3A."
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 10c0/25ce2f905247d1230da58421e298b2cddbc98c3a200af8499cdfb919ba3ea1ccf5b1af3246b7462fac6653d81b48b53f007469a6c145c33d4a6a439236844bc9
+  languageName: node
+  linkType: hard
+
 "my-turbo-module@file:modules/turbo-module::locator=nitrobenchmarks%40workspace%3A.":
   version: 0.0.1
   resolution: "my-turbo-module@file:modules/turbo-module#modules/turbo-module::hash=ecd6c8&locator=nitrobenchmarks%40workspace%3A."
@@ -6622,6 +6632,7 @@ __metadata:
     expo-build-properties: "npm:~0.12.5"
     expo-status-bar: "npm:~1.12.1"
     my-craby-module: "file:modules/craby-module"
+    my-cxx-module: "file:modules/cxx-module"
     my-turbo-module: "file:modules/turbo-module"
     nitro-codegen: "npm:^0.3.0"
     react: "npm:18.2.0"
