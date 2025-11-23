@@ -23,11 +23,11 @@ function warmupTurboModule() {
   MyTurboModule.addNumbers(5, 13)
   MyTurboModule.addStrings('hello ', 'world')
 }
-function testCrabyModule() {
+function warmupCrabyModule() {
   MyCrabyModule.addNumbers(5, 13)
   MyCrabyModule.addStrings('hello ', 'world')
 }
-function testCxxModule() {
+function warmupCxxModule() {
   MyCxxModule.addNumbers(5, 13)
   MyCxxModule.addStrings('hello ', 'world')
 }
@@ -39,12 +39,9 @@ function runNumberBenchmark() {
   warmupNitroModule()
   warmupNitroCxxModule()
   warmupTurboModule()
+  warmupCrabyModule()
+  warmupCxxModule()
   
-  testExpoModule()
-  testNitroModule()
-  testTurboModule()
-  testCrabyModule();
-  testCxxModule();
   console.log('--------- BEGINNING NUMBER BENCHMARKS ---------')
   let expoTime = 0
   {
