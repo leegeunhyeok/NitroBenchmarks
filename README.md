@@ -32,7 +32,8 @@ On my iPhone 15 Pro I got these numbers in a release build:
     <th></th>
     <th>ExpoModules</th>
     <th>TurboModules</th>
-    <th>NitroModules</th>
+    <th>NitroModules (Swift)</th>
+    <th>NitroModules (C++)</th>
     <th>CrabyModules</th>
   </tr>
   <tr>
@@ -40,6 +41,7 @@ On my iPhone 15 Pro I got these numbers in a release build:
     <td>434.85</td>
     <td>115.86ms</td>
     <td><b>7.27ms</b></td>
+    <td><b>6.33ms</b></td>
     <td><b>5.32ms</b></td>
   </tr>
   <tr>
@@ -47,13 +49,14 @@ On my iPhone 15 Pro I got these numbers in a release build:
     <td>429.53ms</td>
     <td>179.02ms</td>
     <td><b>29.94ms</b></td>
+    <td><b>12.99ms</b></td>
     <td><b>15.75ms</b></td>
   </tr>
 </table>
 
 - For `addNumbers(...)`, Nitro Modules is **59x as fast as ExpoModules**, and **15x as fast as TurboModules** 🔥
 - For `addStrings(...)`, Nitro Modules is **13x as fast as ExpoModules**, and **5x as fast as TurboModules** 🔥
-- 🦀 Craby Modules is **faster** than Nitro Modules
+- 🦀 Craby Modules is **faster** than Swift Nitro Modules, **similar** to C++ NitroModules.
 
 ---
 
