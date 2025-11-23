@@ -2,20 +2,24 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { MyExpoModule } from './modules/my-module';
-import { MyNitroModule } from './modules/nitro-module';
+import { MyNitroModule, MyCxxNitroModule } from './modules/nitro-module';
 import { MyTurboModule } from './modules/turbo-module/js'
 import { MyCrabyModule } from './modules/craby-module/js';
 import { MyCxxModule } from './modules/cxx-module/js';
 
-function testExpoModule() {
+function warmupExpoModule() {
   MyExpoModule.addNumbers(5, 13)
   MyExpoModule.addStrings('hello ', 'world')
 }
-function testNitroModule() {
+function warmupNitroModule() {
   MyNitroModule.addNumbers(5, 13)
   MyNitroModule.addStrings('hello ', 'world')
 }
-function testTurboModule() {
+function warmupNitroCxxModule() {
+  MyCxxNitroModule.addNumbers(5, 13)
+  MyCxxNitroModule.addStrings('hello ', 'world')
+}
+function warmupTurboModule() {
   MyTurboModule.addNumbers(5, 13)
   MyTurboModule.addStrings('hello ', 'world')
 }
@@ -31,6 +35,11 @@ function testCxxModule() {
 const runs = 100_000
 
 function runNumberBenchmark() {
+  warmupExpoModule()
+  warmupNitroModule()
+  warmupNitroCxxModule()
+  warmupTurboModule()
+  
   testExpoModule()
   testNitroModule()
   testTurboModule()
@@ -73,6 +82,18 @@ function runNumberBenchmark() {
     nitroTime = (end - start).toFixed(2)
     console.log(`NitroModule took ${nitroTime}ms to run addNumbers(...) ${runs}x!`)
   }
+  let nitroCxxTime = 0
+  {
+    console.log(`Starting CxxNitroModule benchmark...`)
+    const start = performance.now()
+    let num = 0
+    for (let i = 0; i < runs; i++) {
+      num = MyCxxNitroModule.addNumbers(num, 5)
+    }
+    const end = performance.now()
+    nitroCxxTime = (end - start).toFixed(2)
+    console.log(`CxxNitroModule took ${nitroCxxTime}ms to run addNumbers(...) ${runs}x!`)
+  }
   let crabyTime = 0
   {
     console.log(`Starting CrabyModule benchmark...`)
@@ -98,7 +119,7 @@ function runNumberBenchmark() {
     console.log(`CxxModule took ${cxxTime}ms to run addNumbers(...) ${runs}x!`)
   }
   console.log('--------- FINISHED NUMBER BENCHMARKS! ---------')
-  return { expoTime, turboTime, nitroTime, crabyTime, cxxTime }
+  return { expoTime, turboTime, nitroTime, nitroCxxTime, crabyTime, cxxTime }
 }
 
 function runStringsBenchmark() {
@@ -136,6 +157,17 @@ function runStringsBenchmark() {
     nitroTime = (end - start).toFixed(2)
     console.log(`NitroModule took ${nitroTime}ms to run addStrings(...) ${runs}x!`)
   }
+  let nitroCxxTime = 0
+  {
+    console.log(`Starting CxxNitroModule benchmark...`)
+    const start = performance.now()
+    for (let i = 0; i < runs; i++) {
+      const x = MyCxxNitroModule.addStrings('hello ', 'world')
+    }
+    const end = performance.now()
+    nitroCxxTime = (end - start).toFixed(2)
+    console.log(`CxxNitroModule took ${nitroCxxTime}ms to run addStrings(...) ${runs}x!`)
+  }
   let crabyTime = 0
   {
     console.log(`Starting CrabyModule benchmark...`)
@@ -159,7 +191,7 @@ function runStringsBenchmark() {
     console.log(`CxxModule took ${cxxTime}ms to run addStrings(...) ${runs}x!`)
   }
   console.log('--------- FINISHED STRING BENCHMARKS! ---------')
-  return { expoTime, turboTime, nitroTime, crabyTime, cxxTime }
+  return { expoTime, turboTime, nitroTime, nitroCxxTime, crabyTime, cxxTime }
 }
 
 
@@ -182,7 +214,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: 'bold', size: 24 }}>ExpoModules vs TurboModules vs NitroModules vs CrabyModules vs CxxModules</Text>
+      <Text style={{ fontWeight: 'bold', size: 24 }}>Native Modules Benchmark</Text>
 
       <View style={{ height: 50 }} />
 
@@ -196,6 +228,9 @@ export default function App() {
         </Text>
         <Text>
           NitroModule.addNumbers(...) took <Text style={{ fontWeight: 'bold' }}>{numberTimes?.nitroTime}ms</Text>
+        </Text>
+        <Text>
+          CxxNitroModule.addNumbers(...) took <Text style={{ fontWeight: 'bold' }}>{numberTimes?.nitroCxxTime}ms</Text>
         </Text>
         <Text>
           CrabyModule.addNumbers(...) took <Text style={{ fontWeight: 'bold' }}>{numberTimes?.crabyTime}ms</Text>
@@ -217,6 +252,9 @@ export default function App() {
         </Text>
         <Text>
           NitroModule.addStrings(...) took <Text style={{ fontWeight: 'bold' }}>{stringTimes?.nitroTime}ms</Text>
+        </Text>
+        <Text>
+          CxxNitroModule.addStrings(...) took <Text style={{ fontWeight: 'bold' }}>{stringTimes?.nitroCxxTime}ms</Text>
         </Text>
         <Text>
           CrabyModule.addStrings(...) took <Text style={{ fontWeight: 'bold' }}>{stringTimes?.crabyTime}ms</Text>

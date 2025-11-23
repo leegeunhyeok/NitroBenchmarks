@@ -85,6 +85,29 @@ On my Mac Studio (Apple M1 Max, 32GB RAM), I got these numbers in a release buil
   </tr>
 </table>
 
+## NitroModules: Swift vs C++
+
+In addition to platform-specific languages, NitroModules can be written in C++, a cross-platform language.
+C++ is a lot faster than platform-specific languages like Swift or Kotlin:
+
+<table>
+  <tr>
+    <th></th>
+    <th>NitroModules Swift</th>
+    <th>NitroModules C++</th>
+  </tr>
+  <tr>
+    <td>100.000x <code>addNumbers(...)</code></td>
+    <td>8.21ms</td>
+    <td><b>6.33ms</b></td>
+  </tr>
+  <tr>
+    <td>100.000x <code>addStrings(...)</code></td>
+    <td>68.20ms</td>
+    <td><b>12.99ms</b></td>
+  </tr>
+</table>
+
 ## Real-world
 
 Note that these are just very specific benchmarks. They profile JS <-> Native function execution time (call, argument parsing, and result argument conversion).
